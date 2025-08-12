@@ -58,4 +58,14 @@ public class LibroService {
 		System.out.println();
 	}
 
+	public LibroDto consultarLibro(String titulo) {
+		for (LibroDto libroDto : libros) {
+			if (libroDto.getTitulo().equals(titulo)) {
+				return libroDto;
+			}
+		}
+
+		return null;
+	}
+
 }

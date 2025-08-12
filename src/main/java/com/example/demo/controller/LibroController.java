@@ -55,6 +55,8 @@ public class LibroController {
 
 		}
 
+		LibroDto libroEncontrado = libroService.consultarLibro("el poder del ahora");
+		libroService.imprimirLibro(libroEncontrado);
 	}
 
 }
