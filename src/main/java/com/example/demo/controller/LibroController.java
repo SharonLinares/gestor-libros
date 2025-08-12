@@ -25,10 +25,8 @@ public class LibroController {
 		System.out.println(ResultadosumaPaginas);
 		System.out.println();
 
-		LibroDto libro = libroService.crearLibro("el poder del ahora", "paulo londra", 245);
-		System.out.println(libro.getTitulo());
-		System.out.println(libro.getAutor());
-		System.out.println(libro.getPaginas());
+		LibroDto libro = libroService.crearLibro("el poder del ahora", "paulo londra", 245, 1994);
+		libroService.imprimirLibro(libro);
 		libroService.llenarLista(libro);
 
 		LibroDto libro2 = new LibroDto();
@@ -36,19 +34,25 @@ public class LibroController {
 		libro2.setTitulo("el camino de los perdedores");
 		libro2.setAutor("mauricio garces");
 		libro2.setPaginas(234);
+		libroService.llenarLista(libro2);
+		libroService.imprimirLibro(libro2);
 
-		System.out.println(libro2.getTitulo());
-		System.out.println(libro2.getAutor());
-		System.out.println(libro2.getPaginas());
+		LibroDto libro3 = new LibroDto("hola mundo", "robin arellano", 234, 1889);
+		libroService.llenarLista(libro3);
+		libroService.imprimirLibro(libro3);
+
+		libroService.llenarLista(new LibroDto("hola", "sharon linres", 223, 1267));
+
+		libroService.llenarLista(libroService.crearLibro("el poder del ahora", "paulO COELLO", 245, 1234));
+
 		System.out.println("***********imprimiendo lista**********");
 
-		List<LibroDto> lista = libroService.llenarLista(libro2);
+		List<LibroDto> lista = libroService.consultarLista();
+
 		for (LibroDto libroDto : lista) {
-		    System.out.println(libroDto.getTitulo());
-		    System.out.println(libroDto.getAutor());
-		    System.out.println(libroDto.getPaginas());
-		    System.out.println("-----");
-		    
+			libroService.imprimirLibro(libroDto);
+			System.out.println("-----");
+
 		}
 
 	}

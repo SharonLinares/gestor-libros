@@ -12,8 +12,7 @@ public class LibroService {
 	public LibroService() {
 		super();
 		this.libros = new ArrayList<LibroDto>();
-		
-		
+
 	}
 
 	public void bienvenida() {
@@ -32,17 +31,31 @@ public class LibroService {
 		return paginasLibro1 + paginasLibro2;
 	}
 
-	public LibroDto crearLibro(String titulo, String autor, int paginas) {
+	public LibroDto crearLibro(String titulo, String autor, int paginas, int anioLanzamiento) {
 		LibroDto libroDto = new LibroDto();
 		libroDto.setTitulo(titulo);
 		libroDto.setAutor(autor);
 		libroDto.setPaginas(paginas);
+		libroDto.setAnioLanzamiento(anioLanzamiento);
 		return libroDto;
 
 	}
 
-	public List<LibroDto> llenarLista(LibroDto libroDto){
+	public void llenarLista(LibroDto libroDto) {
 		this.libros.add(libroDto);
+
+	}
+
+	public List<LibroDto> consultarLista() {
 		return libros;
 	}
+
+	public void imprimirLibro(LibroDto libroDto) {
+		System.out.println("titulo: " + libroDto.getTitulo());
+		System.out.println("autor: " + libroDto.getAutor());
+		System.out.println("paginas: " + libroDto.getPaginas());
+		System.out.println("año de lanzamiento: " + libroDto.getAnioLanzamiento());
+		System.out.println();
+	}
+
 }
